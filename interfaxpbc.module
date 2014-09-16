@@ -20,7 +20,7 @@ function interfaxpbc_menu() {
 /**
  * Implementinh hook_help. Adding module link to help page and help information.
  */
-function interfaxpbc_help($path, $arg){
+function interfaxpbc_help($path, $arg) {
   switch ($path) {
      case 'admin/help#interfaxpbc':
         return '<p>' . t('Interfaxpbc help informations') . '</p>';
@@ -42,8 +42,7 @@ $form['interfaxpbc_password'] = array(
   '#type' => 'password',
   '#title' => t('Password'),
   '#description' => 'Your InterFAX Password',
-  '#default_value' => variable_get('interfaxpbc_md5_pass'),
-  //'#default_value' => variable_get('interfaxpbc_encrypted_password');
+  '#default_value' => variable_get('interfaxpbc_password'),
   '#required' => TRUE,
   );
 
@@ -57,33 +56,5 @@ $form['interfaxpbc_method'] = array(
     'json' => 'Json Selected',
     ),
   );
-
-//$form['submit'] = array(
-//  '#type' => 'submit', 
-//  '#value' => t('Save config to database'),
-//  );
-// return $form;
-// return system_settings_form($form) automatically adds all the values
-//  of the form in the database , using the keys you inputed
 return system_settings_form($form);
 }
-
-//function interfaxpbc_page_submit($form, &$form_state) {
-  //dpm('Succesfully submitted. Check the values please then delete this');
-  //$username = $form_state['values']['interfaxpbc_username'];
-  //$password = $form_state['values']['interfaxpbc_password'];
-  //$selection = $form_state['values']['interfaxpbc_method'];
-    //$md5pass = md5($password);
-    //dpm('The saved password hash in the database is : ' . $md5pass);
-  
-  //variable_set('interfaxpbc_username', $username);
-      //variable_set('interfaxpbc_md5_pass', $md5pass);
-  //variable_set('interfaxpbc_md5_pass', $password);
-  //variable_set('interfaxpbc_selected_method', $selection);
-
-  //dpm($form_state['values']);
-  //dpm('User saved to database : ' . $form_state['values']['interfaxpbc_username']);
-  //dpm('Pass saved to database : ' . $form_state['values']['interfaxpbc_password']);
-//}
-
-/// A function to encrypt and decrypt the password when saving and view-ing from the database.
