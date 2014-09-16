@@ -1,0 +1,4 @@
+name = Interfax PBC
+description = Interfax try by pbc
+core = 7.x
+package = Experimental
